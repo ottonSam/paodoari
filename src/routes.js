@@ -4,6 +4,7 @@ import { isAuthenticated } from "./services/auth";
 import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 
 import Login from './pages/Login';
+import Singup from './pages/Singup';
 import Homepage from './pages/Homepage';
 import MeusPedidos from "./pages/MeusPedidos";
 
@@ -24,6 +25,7 @@ const Routes = () => (
   <BrowserRouter>
     <Switch>
       <Route exact path="/login" component={Login} />
+      <Route exact path="/singup" component={Singup} />
       <PrivateRoute path="/" exact component={Homepage} />
       <PrivateRoute path="/meuspedidos" component={MeusPedidos} />
     </Switch>

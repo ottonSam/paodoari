@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 
 
 import api from '../../services/api';
@@ -26,25 +26,28 @@ function Login() {
   
   
   return (
-    <form>
-      <input 
-        type="text" 
-        value={email}
-        onChange= {e => setEmail(e.target.value) } 
-        placeholder="Email" 
-      />
-      <input 
-        type="password" 
-        value={senha}
-        onChange= {e => setSenha(e.target.value) } 
-        placeholder="Password" 
-      />
-      <button 
-        type="button" 
-        onClick={_ => handleLogin(email,senha)}>
-        Entrar
-      </button>
-    </form>
+    <div>
+      <form>
+        <input 
+          type="text" 
+          value={email}
+          onChange= {e => setEmail(e.target.value) } 
+          placeholder="Email" 
+        />
+        <input 
+          type="password" 
+          value={senha}
+          onChange= {e => setSenha(e.target.value) } 
+          placeholder="Password" 
+        />
+        <button 
+          type="button" 
+          onClick={_ => handleLogin(email,senha)}>
+          Entrar
+        </button>
+      </form>
+      <Link to='/singup' >Criar uma conta</Link>
+    </div>
   ); 
   
 }
