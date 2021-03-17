@@ -1,7 +1,10 @@
 import React from "react";
-import { isAuthenticated } from "./auth";
+import { isAuthenticated } from "./services/auth";
 
 import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
+
+import Login from './pages/Login';
+import Homepage from './pages/Homepage';
 
 const PrivateRoute = ({ component: Component, ...rest }) => (
   <Route
@@ -10,7 +13,7 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
       isAuthenticated() ? (
         <Component {...props} />
       ) : (
-        <Redirect to={{ pathname: "/", state: { from: props.location } }} />
+        <Redirect to={{ pathname: "/login", state: { from: props.location } }} />
       )
     }
   />
@@ -19,8 +22,8 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
 const Routes = () => (
   <BrowserRouter>
     <Switch>
-      <Route exact path="/" component={() => <h1>Hello World</h1>} />
-      <PrivateRoute path="/app" component={() => <h1>Você está logado</h1>} />
+      <Route exact path="/login" component={Login} />
+      <PrivateRoute path="/" component={Homepage} />
     </Switch>
   </BrowserRouter>
 );
