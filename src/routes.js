@@ -5,6 +5,7 @@ import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 
 import Login from './pages/Login';
 import Homepage from './pages/Homepage';
+import MeusPedidos from "./pages/MeusPedidos";
 
 const PrivateRoute = ({ component: Component, ...rest }) => (
   <Route
@@ -23,7 +24,8 @@ const Routes = () => (
   <BrowserRouter>
     <Switch>
       <Route exact path="/login" component={Login} />
-      <PrivateRoute path="/" component={Homepage} />
+      <PrivateRoute path="/" exact component={Homepage} />
+      <PrivateRoute path="/meuspedidos" component={MeusPedidos} />
     </Switch>
   </BrowserRouter>
 );

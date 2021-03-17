@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 import api from '../../services/api';
 
-import Logout from '../../components/Logout';
+import Header from '../../components/Header';
 
 // import { Container } from './styles';
 
@@ -19,13 +19,13 @@ function Homepage() {
 
   return(
     <div>
+      <Header />
       <h1>Pagina de inicio</h1>
       <ul>
           <li>({user.id})</li>
           <li>({user.usuario})</li>
           <li>({user.telefone})</li>
       </ul>
-      <Logout />
     </div>
   );
 }
