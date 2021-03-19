@@ -14,6 +14,9 @@ function Pedidos() {
       <PedidoForm day="Segunda Feira" dayNumber={1} />
       <PedidoForm day="Terça Feira" dayNumber={2} />
       <PedidoForm day="Quarta Feira" dayNumber={3} />
+      <PedidoForm day="Quinta Feira" dayNumber={4} />
+      <PedidoForm day="Sexta Feira" dayNumber={5} />
+      <PedidoForm day="Sábado" dayNumber={6} />
     </div>
   );
 }

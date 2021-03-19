@@ -11,16 +11,19 @@ function Login() {
 
   async function handleLogin(email, senha) {
 
+    setLoading(true);
     const data  = await api.post('/auth', { email, senha });
     const token = data.data;
 
     localStorage.setItem('token', JSON.stringify(token));
     api.defaults.headers.Authorization = `Bearer ${token}`;
     
+    setLoading(false);
     history.push('/');
     
   }
 
+  const [loading, setLoading] = useState(false);
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
   
