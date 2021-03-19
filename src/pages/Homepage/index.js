@@ -9,11 +9,14 @@ import Header from '../../components/Header';
 function Homepage() {
 
   const [user, setUser] = useState([]);
+  const [product, setProduct] = useState([]);
 
   useEffect(() => {
     (async () => {
-      const { data } = await api.get('/users');
-      setUser(data);
+      const userData = await api.get('/users');
+      setUser(userData.data);
+      const productData = await api.get('/product');
+      setProduct(productData.data)
     })();
   }, []);  
 
@@ -25,6 +28,12 @@ function Homepage() {
           <li>({user.id})</li>
           <li>({user.usuario})</li>
           <li>({user.telefone})</li>
+      </ul>
+      <p>Produtos disponíveis</p>
+      <ul>
+        {product.map((prod) => (
+          <li key={prod.id}>{prod.produto}</li>
+        )) }
       </ul>
     </div>
   );

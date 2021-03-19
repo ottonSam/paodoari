@@ -14,13 +14,8 @@ function Header() {
         </Link>
       </div>
       <div>
-        <Link to="/pedido">
+        <Link to="/pedidos">
           Pedidos
-        </Link>
-      </div>
-      <div>
-        <Link to="/meuspedidos">
-          Meus Pedidos
         </Link>
       </div>
       <div>
