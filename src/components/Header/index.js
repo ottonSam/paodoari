@@ -1,32 +1,29 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+import { Container, Logo } from './styles';
+
 import Logout from '../Logout';
 
 // import { Container } from './styles';
 
 function Header() {
   return (
-    <div>
-      <div>
+    <Container>
+        <Logo>
+          <img src="logo.png"  />
+        </Logo>
         <Link to="/">
           Início
         </Link>
-      </div>
-      <div>
         <Link to="/pedidos">
           Pedidos
         </Link>
-      </div>
-      <div>
         <Link to="/perfil">
           Perfil
         </Link>
-      </div>
-      <div>
         <Logout />
-      </div>
-    </div>
+    </Container>
     );
 }
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 
 function Logout() {
 
@@ -13,13 +13,10 @@ function Logout() {
   }
 
   return (
-    <form>
-      <button 
-        type="button" 
+      <Link
         onClick={_ => handleLogout()}>
         Sair
-      </button>
-    </form>
+      </Link>
   ); 
   
 }

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
+import { Form, Container } from '../Login/styles';
 
 import api from '../../services/api';
 
@@ -46,91 +47,95 @@ function Login() {
   
   
   return (
-    <form>
-      <input 
-        type="text" 
-        value={email}
-        onChange= {e => setEmail(e.target.value) } 
-        placeholder="Email" 
-      />
-      <input 
-        type="text" 
-        value={cpf}
-        onChange= {e => setCpf(e.target.value) } 
-        placeholder="Cpf" 
-      />
-      <input 
-        type="text" 
-        value={telefone}
-        onChange= {e => setTelefone(e.target.value) } 
-        placeholder="Telefone" 
-      />
-      <input 
-        type="date" 
-        value={data_de_nascimento}
-        onChange= {e => setData_de_nascimento(e.target.value) } 
-        placeholder="data de nascimento" 
-      />
-      <input 
-        type="text" 
-        value={logadouro}
-        onChange= {e => setLogadouro(e.target.value) } 
-        placeholder="Logadouro" 
-      />
-      <input 
-        type="text" 
-        value={numero}
-        onChange= {e => setNumero(e.target.value) } 
-        placeholder="Numero" 
-      />
-      <input 
-        type="text" 
-        value={estado}
-        onChange= {e => setEstado(e.target.value) } 
-        placeholder="Estado" 
-      />
-      <input 
-        type="text" 
-        value={cidade}
-        onChange= {e => setCidade(e.target.value) } 
-        placeholder="Cidade" 
-      />
-      <input 
-        type="text" 
-        value={usuario}
-        onChange= {e => setUsuario(e.target.value) } 
-        placeholder="Usuario" 
-      />
-      <input 
-        type="text" 
-        value={ponto_de_referencia}
-        onChange= {e => setPonto_de_referencia(e.target.value) } 
-        placeholder="Ponto de referencia" 
-      />
-      <input 
-        type="password" 
-        value={senha}
-        onChange= {e => setSenha(e.target.value) } 
-        placeholder="Password" 
-      />
-      <button 
-        type="button" 
-        onClick={_ => handleSingUp(
-          email, 
-          cpf, 
-          telefone, 
-          data_de_nascimento,
-          logadouro, 
-          numero, 
-          estado, 
-          cidade, 
-          usuario, 
-          ponto_de_referencia, 
-          senha
-        )}>
-        Entrar
-      </button>
-    </form>
+    <Container>
+      <Form>
+        <p>Crie sua conta <span>Fácil!</span></p>
+        <input 
+          type="text" 
+          value={email}
+          onChange= {e => setEmail(e.target.value) } 
+          placeholder="Email" 
+        />
+        <input 
+          type="text" 
+          value={cpf}
+          onChange= {e => setCpf(e.target.value) } 
+          placeholder="Cpf" 
+        />
+        <input 
+          type="text" 
+          value={telefone}
+          onChange= {e => setTelefone(e.target.value) } 
+          placeholder="Telefone" 
+        />
+        <input 
+          type="date" 
+          value={data_de_nascimento}
+          onChange= {e => setData_de_nascimento(e.target.value) } 
+          placeholder="data de nascimento" 
+        />
+        <input 
+          type="text" 
+          value={logadouro}
+          onChange= {e => setLogadouro(e.target.value) } 
+          placeholder="Logadouro" 
+        />
+        <input 
+          type="text" 
+          value={numero}
+          onChange= {e => setNumero(e.target.value) } 
+          placeholder="Numero" 
+        />
+        <input 
+          type="text" 
+          value={estado}
+          onChange= {e => setEstado(e.target.value) } 
+          placeholder="Estado" 
+        />
+        <input 
+          type="text" 
+          value={cidade}
+          onChange= {e => setCidade(e.target.value) } 
+          placeholder="Cidade" 
+        />
+        <input 
+          type="text" 
+          value={usuario}
+          onChange= {e => setUsuario(e.target.value) } 
+          placeholder="Usuario" 
+        />
+        <input 
+          type="text" 
+          value={ponto_de_referencia}
+          onChange= {e => setPonto_de_referencia(e.target.value) } 
+          placeholder="Ponto de referencia" 
+        />
+        <input 
+          type="password" 
+          value={senha}
+          onChange= {e => setSenha(e.target.value) } 
+          placeholder="Password" 
+        />
+        <button 
+          type="button" 
+          onClick={_ => handleSingUp(
+            email, 
+            cpf, 
+            telefone, 
+            data_de_nascimento,
+            logadouro, 
+            numero, 
+            estado, 
+            cidade, 
+            usuario, 
+            ponto_de_referencia, 
+            senha
+          )}>
+          Entrar
+        </button>
+        <Link to="/login"> Voltar para o Login</Link>
+      </Form>
+    </Container>
   ); 
   
 }

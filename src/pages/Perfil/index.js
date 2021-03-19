@@ -4,6 +4,8 @@ import api from '../../services/api';
 
 import Header from '../../components/Header';
 
+import { Container, Title, List } from '../Homepage/styles';
+
 // import { Container } from './styles';
 
 function Perfil() {
@@ -18,17 +20,21 @@ function Perfil() {
   return(
     <div>
       <Header />
-      <h1>Perfil</h1>
-      <p>{user.email}</p>
-      <p>{user.cidade}</p>
-      <p>{user.cpf}</p>
-      <p>{user.estado}</p>
-      <p>{user.logadouro}</p>
-      <p>{user.numero}</p>
-      <p>{user.ponto_de_referencia}</p>
-      <p>{user.telefone}</p>
-      <p>{user.data_de_nascimento}</p>
-      <p>{user.usuario}</p>
+      <Container>
+        <Title>Perfil, <span>Detalhes do Cliente!</span></Title>
+        <List>  
+          <p>Email: {user.email}</p>
+          <p>Usuário: {user.usuario}</p>
+          <p>Cpf: {user.cpf}</p>
+          <p>Telefone: {user.telefone}</p>
+          <p>Data de Nascimento: {user.data_de_nascimento}</p>
+          <p>Estado: {user.estado}</p>
+          <p>Cidade: {user.cidade}</p>
+          <p>Logadouro: {user.logadouro}</p>
+          <p>Numero da casa: {user.numero}</p>
+          <p>Ponto de referencia{user.ponto_de_referencia}</p>
+        </List>
+      </Container>
     </div>
   );
 }

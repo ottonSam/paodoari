@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from 'react';
+import { BiFoodMenu } from 'react-icons/bi';
 
 import api from '../../services/api';
 
 import Header from '../../components/Header';
+
+import { Title, Container, List } from './styles';
 
 // import { Container } from './styles';
 
@@ -23,18 +26,19 @@ function Homepage() {
   return(
     <div>
       <Header />
-      <h1>Pagina de inicio</h1>
-      <ul>
-          <li>({user.id})</li>
-          <li>({user.usuario})</li>
-          <li>({user.telefone})</li>
-      </ul>
-      <p>Produtos disponíveis</p>
-      <ul>
+      <Container>
+        <Title>Olá, <span>Bem vindo(a) {user.usuario}!</span></Title>
+        <p>Ficamos felizes que você decidiu assinar o nosso serviço de entregas, sendo assim como combinado você pagará R$0,30 na unidade de pão e R$7,00 na unidade de bolo.</p>
+        <span>Veja nossos produtos!!</span>
+      </Container>
+      <List>
         {product.map((prod) => (
-          <li key={prod.id}>{prod.produto}</li>
+          <div>
+             <BiFoodMenu size={40} />
+            <p key={prod.id}>{prod.produto}</p>
+          </div>
         )) }
-      </ul>
+      </List>
     </div>
   );
 }

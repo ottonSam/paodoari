@@ -3,6 +3,8 @@ import { useForm } from "react-hook-form";
 
 import api from '../../services/api';
 
+import { Form, Container } from './styles';
+
 // import { Container } from './styles';
 
 function PedidoForm(props) {
@@ -48,10 +50,12 @@ function PedidoForm(props) {
     if(index >= 0){
       return (
         <div>
-          {produtoNome}
           <fieldset>
+            <label>{produtoNome}</label>
             <input defaultChecked type="checkbox" name={`${fieldName}.idProduto`} ref={register} value={produto} ></input>
-            quantidade
+          </fieldset>
+          <fieldset>
+            <label>Quantidade</label>
             <input type="number" name={`${fieldName}.quantidade`} ref={register} defaultValue={requests[index].quantidade}></input>
           </fieldset>
         </div>
@@ -59,10 +63,12 @@ function PedidoForm(props) {
     } else {
       return (
         <div>
-          {produtoNome}
           <fieldset>
+            <label>{produtoNome}</label>
             <input  type="checkbox" name={`${fieldName}.idProduto`} ref={register} value={produto} ></input>
-            quantidade
+          </fieldset>
+          <fieldset>
+            <label>Quantidade</label>
             <input type="number" name={`${fieldName}.quantidade`} ref={register} ></input>
           </fieldset>
         </div>
@@ -91,21 +97,23 @@ function PedidoForm(props) {
 
   
   return (
-    <div>
-      <h2>{day}</h2>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        {product.map((prod) => {
-          const fieldName = `products[${i}]`;
-          i++;
-          return (
-            <div key={prod.id}>
-              {requestExists(prod.id, prod.produto, fieldName)}
-            </div>
-        )}) }
+    <Container>
+      <div>
+        <h2>{day}</h2>
+        <Form onSubmit={handleSubmit(onSubmit)}>
+          {product.map((prod) => {
+            const fieldName = `products[${i}]`;
+            i++;
+            return (
+              <div key={prod.id}>
+                {requestExists(prod.id, prod.produto, fieldName)}
+              </div>
+          )}) }
 
-        <input type="submit" />
-      </form>
-    </div>
+          <input type="submit" />
+        </Form>
+      </div>
+    </Container>
   );
 }
 
